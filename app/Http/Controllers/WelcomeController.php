@@ -13,4 +13,10 @@ class WelcomeController
 		$response->getBody()->write('WelcomeController : Hello World');
 		return $response;
 	}
+
+	public function show(Response $response, $name, $id): Response
+	{
+		$response->getBody()->write("Welcome {$name}. Your id is {$id}");
+		return $response;
+	}
 }
