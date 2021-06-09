@@ -14,8 +14,8 @@ class WelcomeController
 		return $view('auth.home', ['name'=> 'Clean Code Studio']);
 	}
 
-	public function show(View $view, $user, $id): Response
+	public function show(View $view, $name, $id): Response
 	{
-		return $view('user.show', compact('user', 'id'));
+		return $view('user.show', compact('name', 'id'));
 	}
 }

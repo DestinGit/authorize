@@ -8,4 +8,4 @@ use App\Support\Route;
 //});
 
 Route::get('/{name}', 'WelcomeController@index');
-Route::get('/example/{user}/{id}', 'WelcomeController@show');
+Route::get('/welcome/{name}/{id}', 'WelcomeController@show');
