@@ -3,20 +3,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\View;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 class WelcomeController
 {
-	public function index(Request $request, Response $response): Response
+	public function index(View $view): Response
 	{
-		$response->getBody()->write('WelcomeController : Hello World');
-		return $response;
+		return $view('auth.home', ['name'=> 'Clean Code Studio']);
 	}
 
-	public function show(Response $response, $name, $id): Response
+	public function show(View $view, $user, $id): Response
 	{
-		$response->getBody()->write("Welcome {$name}. Your id is {$id}");
-		return $response;
+		return $view('user.show', compact('user', 'id'));
 	}
 }

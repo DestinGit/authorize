@@ -65,19 +65,6 @@ if (! function_exists('app_path')) {
 	}
 }
 
-if (!function_exists('view')) {
-	function view(Response $response, $template, $with = []): Response
-	{
-		$cache = config('blade.cache');
-		$views = config('blade.views');
-
-		$blade = (new Blade($views, $cache))->make($template, $with);
-
-		$response->getBody()->write($blade->render());
-		return $response;
-	}
-}
-
 if (!function_exists('dd'))
 {
 	function dd()
