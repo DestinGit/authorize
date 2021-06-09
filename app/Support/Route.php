@@ -38,7 +38,7 @@ class Route
 		throw_when($fails, $exception . $context);
 	}
 
-	protected static function resolveViaController($action)
+	protected static function resolveViaController($action): array
 	{
 		$class = Str::before($action, "@");
 		$method = Str::after($action, "@");
