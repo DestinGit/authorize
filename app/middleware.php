@@ -2,10 +2,9 @@
 use Slim\App;
 
 return function (App $app) {
-	$settings = $app->getContainer()->get('settings');
 	$app->addErrorMiddleware(
-		$settings['displayErrorsDetails'],
-		$settings['logErrors'],
-		$settings['logErrorsDetails']
+		config('middleware.error_details.displayErrorsDetails'),
+		config('middleware.error_details.logErrors'),
+		config('middleware.error_details.logErrorsDetails')
 	);
 };
