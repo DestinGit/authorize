@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
 	<div style="padding: 10px">
-		<h1>Welcome <?php echo e($user); ?></h1>
+		<h1>Welcome <?php echo e($name); ?></h1>
 		<small>(Your id is <?php echo e($id); ?>)</small>
 	</div>
 <?php $__env->stopSection(); ?>
