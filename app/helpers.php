@@ -70,8 +70,6 @@ if (!function_exists('view')) {
 	{
 		$cache = config('blade.cache');
 		$views = config('blade.views');
-//		$cache = storage_path('cache');
-//		$views = resources_path('views');
 
 		$blade = (new Blade($views, $cache))->make($template, $with);
 
