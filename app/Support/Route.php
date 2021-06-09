@@ -8,7 +8,10 @@ use Slim\App;
 
 class Route
 {
-	public static App $app;
+	/**
+	 * @var App
+	 */
+	public static $app;
 
 	public static function setup(App &$app): App
 	{

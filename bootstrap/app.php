@@ -12,9 +12,6 @@ $app = SlimAppFactory::create(new Container());
 //	}
 //}
 
-$middleware = require __DIR__ . '/../app/middleware.php';
-$middleware($app);
-
-(require __DIR__ . '/../app/routes.php')($app);
+\App\Providers\ServiceProvider::setup($app, config('app.providers'));
 
 return $app;
