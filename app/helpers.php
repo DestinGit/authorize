@@ -3,11 +3,12 @@
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
+//use Illuminate\Support\Collection;
 use Jenssegers\Blade\Blade;
 use Psr\Http\Message\ResponseInterface as Response;
 
 /*
+ * env
  * base_path
  * config_path
  * resources_path
@@ -22,6 +23,18 @@ use Psr\Http\Message\ResponseInterface as Response;
  * data_get
  * data_set
  * */
+
+if (! function_exists('env_fn')) {
+	function env_fn($key, $default = false)
+	{
+//		$value = getenv($key);
+		$value = $_ENV[$key];
+
+		throw_when(!$value and !$default, "{$key} is not defined .env variable and has not default value");
+
+		return $value or $default;
+	}
+}
 
 if (! function_exists('base_path')) {
 	function base_path($path = ''): string
