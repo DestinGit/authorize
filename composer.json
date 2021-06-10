@@ -7,11 +7,6 @@
             "App\\": "app/"
         }
     },
-    "scripts": {
-        "post-root-package-install": [
-            "php -r \"file_exists('.env') || copy('.env.sample', '.env');\""
-        ]
-    },
     "require": {
         "slim/slim": "4.*",
         "slim/psr7": "^1.4",
@@ -25,5 +20,10 @@
         "illuminate/database": "^7.4",
         "zeuxisoo/slim-whoops": "^0.7.3",
         "vlucas/phpdotenv": "^4.1"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.sample', '.env');\""
+        ]
     }
 }

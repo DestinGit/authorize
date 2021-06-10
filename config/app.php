@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'name', env_fn('APP_NAME', 'IMI TOTOT'),
+	'name', env('APP_NAME', 'Slim 4 MM'),
 	'providers'=> [
 		\App\Providers\EnvironmentVariablesServiceProvider::class,
 		\App\Providers\BladeServiceProvider::class,

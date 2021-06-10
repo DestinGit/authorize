@@ -4,6 +4,7 @@
 namespace App\Providers;
 
 
+use App\Support\SimplyDotEnv;
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 
