@@ -22,13 +22,14 @@ class Route
 	public static function __callStatic($verb, $parameters)
 	{
 		$app = self::$app;
-//		$app->get('/route', 'WelcomeController@index');
+
 		[$route, $action] = $parameters;
 		self::validation($route, $verb, $action);
 
-		return is_callable($action)
-			? $app->$verb($route, $action)
-			: $app->$verb($route, self::resolveViaController($action));
+		$action = is_callable($action)
+			? $action
+			: self::resolveViaController($action);
+		return $app->$verb($route, $action);
 
 	}
 
