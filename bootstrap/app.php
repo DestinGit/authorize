@@ -1,9 +1,11 @@
 <?php
-use DI\Container;
-use DI\Bridge\Slim\Bridge as SlimAppFactory;
-use App\Providers\ServiceProvider;
 
-$app = SlimAppFactory::create(new Container());
+use App\Http\HttpKernel;
+use DI\Container;
+use DI\Bridge\Slim\Bridge as App;
+
+$app = App::create(new Container());
+return HttpKernel::bootstrap( $app )->getApplication();
 //$_SERVER['app'] = &$app;
 //if (!function_exists('app'))
 //{
@@ -13,6 +15,3 @@ $app = SlimAppFactory::create(new Container());
 //	}
 //}
 
-ServiceProvider::setup($app, config('app.providers'));
-
-return $app;
