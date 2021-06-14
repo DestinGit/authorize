@@ -11,7 +11,7 @@ class LoadHttpMiddleware extends Bootstrapper
 	public function boot()
 	{
 		$kernel = $this->app->getContainer()->get(Kernel::class);
-		$this->app->getContainer()->set('global', function () use ($kernel) {
+		$this->app->getContainer()->set('middleware', function () use ($kernel) {
 			return [
 				'global'=> $kernel->middleware,
 				'api'=>$kernel->middlewareGroups['api'],

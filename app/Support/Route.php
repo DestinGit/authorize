@@ -5,15 +5,16 @@ namespace App\Support;
 
 use Illuminate\Support\Str;
 use Slim\App;
+use Slim\Routing\RouteCollectorProxy;
 
 class Route
 {
 	/**
-	 * @var App
+	 * @var App|RouteCollectorProxy
 	 */
 	public static $app;
 
-	public static function setup(App &$app): App
+	public static function setup(&$app)
 	{
 		self::$app = $app;
 		return $app;
@@ -36,7 +37,7 @@ class Route
 	protected static function validation($route, $verb, $action)
 	{
 		$exception = "Unresolvable Route Callback/Controller action";
-		$context = json_encode(compact($route, $verb, $action));
+		$context = json_encode(['route'=>$route, 'verb'=>$verb, 'action'=>$action]);
 		$fails = !((is_callable($action)) or (is_string($action) and Str::is("*@*", $action)));
 
 		throw_when($fails, $exception . $context);
