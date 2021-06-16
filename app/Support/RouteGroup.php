@@ -12,10 +12,19 @@ class RouteGroup
 	/**
 	 * @var App
 	 */
-	protected $app;
-	protected $prefix;
-	protected $routes;
-	protected $middleware = [];
+	protected App $app;
+	/**
+	 * @var string
+	 */
+	protected string $prefix;
+	/**
+	 * @var string
+	 */
+	protected string $routes;
+	/**
+	 * @var array
+	 */
+	protected array $middleware = [];
 
 	/**
 	 * RouteGroup constructor.
