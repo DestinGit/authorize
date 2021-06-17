@@ -6,7 +6,7 @@ namespace Boot\Foundation\Bootstrappers;
 
 use Slim\App;
 
-class Bootstrapper
+abstract class Bootstrapper
 {
 	/**
 	 * @var App
@@ -46,26 +46,22 @@ class Bootstrapper
 		});
 	}
 
-	public function beforeBoot()
-	{
+	abstract public function beforeBoot();
+	abstract public function boot();
+	abstract public function afterBoot();
 
-	}
-
-	public function boot()
-	{
-
-	}
-
-	public function afterBoot()
-	{
-
-	}
-
-
-//	public static function setup(App $app, array $bootstraps)
+//	public function beforeBoot()
 //	{
-//		$bootstraps = array_map(function ($bootstrap) use ($app) {
-//			return new $bootstrap($app);
-//		}, $bootstraps);
+//
+//	}
+//
+//	public function boot()
+//	{
+//
+//	}
+//
+//	public function afterBoot()
+//	{
+//
 //	}
 }

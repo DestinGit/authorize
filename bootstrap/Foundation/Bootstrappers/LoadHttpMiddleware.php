@@ -19,4 +19,14 @@ class LoadHttpMiddleware extends Bootstrapper
 			];
 		});
 	}
+
+	public function beforeBoot()
+	{
+		// TODO: Implement beforeBoot() method.
+	}
+
+	public function afterBoot()
+	{
+		// TODO: Implement afterBoot() method.
+	}
 }

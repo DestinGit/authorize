@@ -4,20 +4,18 @@
 namespace Boot\Foundation\Bootstrappers;
 
 
-use Zeuxisoo\Whoops\Slim\WhoopsMiddleware;
-
-class LoadDebuggingPage extends Bootstrapper
+class LoadAliases extends Bootstrapper
 {
-	public function boot()
-	{
-		if (env("APP_DEBUG", false)) {
-			$this->app->add(new WhoopsMiddleware());
-		}
-	}
 
 	public function beforeBoot()
 	{
 		// TODO: Implement beforeBoot() method.
+	}
+
+	public function boot()
+	{
+		$aliases = config('app.aliases');
+		array_walk($aliases, fn($path, $alias)=> class_alias($path, $alias, true));
 	}
 
 	public function afterBoot()
