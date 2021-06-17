@@ -2,9 +2,12 @@
 
 @section('content')
 	<div style="padding: 10px">
-		<p>
-			{{ $name }} home Page
-			{{ env('APP_NAME') }}
-		</p>
+{{--			{{ $name }} home Page--}}
+			<pre>
+				{{ $user->email }}
+				{{ $user->first_name }}
+				{{ $user->last_name }}
+				{{ $user->username }}
+			</pre>
 	</div>
 @endsection
